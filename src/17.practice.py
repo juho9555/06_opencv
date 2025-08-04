@@ -1,4 +1,5 @@
 import cv2, glob, numpy as np
+import time
 
 # 검색 설정 변수
 ratio = 0.7     # 상품 매칭 선별 비율(낮을수록 엄격)
@@ -17,6 +18,9 @@ search_params = dict(checks=32)
 matcher = cv2.FlannBasedMatcher(index_params, search_params)
 
 def search(img):
+    start_time = time.time() # 시작 시간 측정
+
+
     gray1 = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     kp1, desc1 = detector.detectAndCompute(gray1, None)
 
@@ -77,6 +81,9 @@ def search(img):
 
         results = sorted([(v,k) for (k,v) in results.items() \
                     if v > 0], reverse=True)
+        
+    end_time = time.time() # 종료 시간 측정
+    print(f'이미지 찾기 소요 시간: {end_time - start_time:.3f} 초')
 
     return results
 
@@ -146,6 +153,7 @@ if qImg is not None:
                            (10,50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, 
                            (255,0,0), 1, cv2.LINE_AA)
                 cv2.imshow('Result', cover)
+                
 
 cv2.waitKey()
 
