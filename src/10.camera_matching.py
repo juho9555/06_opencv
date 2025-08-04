@@ -4,7 +4,7 @@ img1 = None
 win_name = 'Camera Matching'
 MIN_MATCH = 10
 # ORB 검출기 생성  ---①
-detector = cv2.ORB_create(1000)
+detector = cv2.ORB_create(nfeatures=1500, scaleFactor=1.2, nlevels=8)
 # Flann 추출기 생성 ---②
 FLANN_INDEX_LSH = 6
 index_params= dict(algorithm = FLANN_INDEX_LSH,
@@ -29,6 +29,8 @@ while cap.isOpened():
         # 키포인트와 디스크립터 추출
         kp1, desc1 = detector.detectAndCompute(gray1, None)
         kp2, desc2 = detector.detectAndCompute(gray2, None)
+        print(f"desc1: {desc1.shape if desc1 is not None else None}, desc2: {desc2.shape if desc2 is not None else None}")
+
         # k=2로 knnMatch
         matches = matcher.knnMatch(desc1, desc2, 2)
         # 이웃 거리의 75%로 좋은 매칭점 추출---②
