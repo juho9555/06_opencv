@@ -34,7 +34,7 @@ def search(img):
         
         cv2.imshow('Searching...', cover) # 검색 중인 책 표지 표시 ---⑥
 
-        cv2.waitKey(5)  # 짧은 대기로 화면 업데이트
+        cv2.waitKey(1)  # 짧은 대기로 화면 업데이트
 
         # 데이터베이스 이미지 전처리 및 특징점 검출 ---⑦
 
@@ -150,8 +150,8 @@ if qImg is not None:
                 cover = cv2.imread(cover_path)
 
                 cv2.putText(cover, f"Accuracy: {accuracy*100:.2f}%", 
-                           (10,50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, 
-                           (255,0,0), 1, cv2.LINE_AA)
+                           (10,50), cv2.FONT_HERSHEY_SIMPLEX, 1, 
+                           (255,0,0), 2, cv2.LINE_AA)
                 cv2.imshow('Result', cover)
                 
 
