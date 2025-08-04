@@ -49,7 +49,7 @@ while cap.isOpened():
         else:
             matches = matcher.knnMatch(desc1, desc2, k=2)
 
-            # 좋은 매칭점 필터링
+            # 상품 매칭점 필터링
             good_matches = []
             for m, n in matches:
                 if m.distance < 0.75 * n.distance:
