@@ -95,6 +95,7 @@ while cap.isOpened():
         break
 
     # 책 인식 영역을 화면 중앙에 표시 ---④
+
     h, w = frame.shape[:2]
 
     left = w // 4
@@ -142,8 +143,8 @@ if qImg is not None:
                 cover = cv2.imread(cover_path)
 
                 cv2.putText(cover, f"Accuracy: {accuracy*100:.2f}%", 
-                           (10,100), cv2.FONT_HERSHEY_SIMPLEX, 1, 
-                           (0,255,0), 2, cv2.LINE_AA)
+                           (10,50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, 
+                           (255,0,0), 1, cv2.LINE_AA)
                 cv2.imshow('Result', cover)
 
 cv2.waitKey()
