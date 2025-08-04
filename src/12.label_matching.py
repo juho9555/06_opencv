@@ -91,8 +91,7 @@ while cap.isOpened():
 
         # 결과 텍스트 출력
         cv2.putText(res, match_status, (20, 30),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.8,
-                    (0, 255, 0) if "✅" in match_status else (0, 0, 255), 2)
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0),  2)
 
     # 결과 출력
     cv2.imshow(win_name, res)
