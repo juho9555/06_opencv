@@ -97,7 +97,7 @@ while cap.isOpened():
     # 책 인식 영역을 화면 중앙에 표시 ---④
     h, w = frame.shape[:2]
 
-    left = w // 3
+    left = w // 4
 
     right = (w // 3) * 2
 
